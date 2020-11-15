@@ -1,6 +1,6 @@
 # console_log
 
-A polymorphic, multi-arity `console_log` macro for `web_sys`:
+A `console_log` macro for `web_sys`:
 
 ```
 console_log!("one");
