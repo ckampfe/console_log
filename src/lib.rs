@@ -1,5 +1,8 @@
 #[macro_export]
 macro_rules! console_log {
+    () => {
+        web_sys::console::log_0();
+    };
     ($e1:expr) => {
         web_sys::console::log_1(&$e1.into());
     };
@@ -51,6 +54,7 @@ mod tests {
 
     #[wasm_bindgen_test]
     fn it_works() {
+        console_log!();
         console_log!("one");
         console_log!("one", "two");
         console_log!("one", "two", "three");
@@ -58,5 +62,6 @@ mod tests {
         console_log!("one", "two", "three", "four", "five");
         console_log!("one", "two", "three", "four", "five", "six");
         console_log!("one", "two", "three", "four", "five", "six", "seven");
+        console_log!("one", String::from("two"), true, 4u8, 5u16, 6u32, 7.0);
     }
 }
